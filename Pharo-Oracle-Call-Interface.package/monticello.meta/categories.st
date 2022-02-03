@@ -1,0 +1,9 @@
+SystemOrganization addCategory: #'Pharo-Oracle-Call-Interface'!
+SystemOrganization addCategory: #'Pharo-Oracle-Call-Interface-Buffers'!
+SystemOrganization addCategory: #'Pharo-Oracle-Call-Interface-Constants'!
+SystemOrganization addCategory: #'Pharo-Oracle-Call-Interface-Core'!
+SystemOrganization addCategory: #'Pharo-Oracle-Call-Interface-Dev'!
+SystemOrganization addCategory: #'Pharo-Oracle-Call-Interface-Exceptions'!
+SystemOrganization addCategory: #'Pharo-Oracle-Call-Interface-Manifest'!
+SystemOrganization addCategory: #'Pharo-Oracle-Call-Interface-Testing'!
+SystemOrganization addCategory: #'Pharo-Oracle-Call-Interface-UFFI'!

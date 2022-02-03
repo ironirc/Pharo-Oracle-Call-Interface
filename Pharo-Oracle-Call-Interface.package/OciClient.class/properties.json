@@ -1,0 +1,34 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Pharo-Oracle-Call-Interface-Core",
+	"classinstvars" : [ ],
+	"pools" : [
+		"OciConstants",
+		"OciConstantsExternalDataTypes",
+		"OciConstantsInternalDataTypes"
+	],
+	"classvars" : [
+		"ociTypeToSmalltalkTypeMapping"
+	],
+	"instvars" : [
+		"environmentHandle",
+		"serviceContextHandle",
+		"password",
+		"username",
+		"environmentString",
+		"encoding",
+		"oracleEncodingId",
+		"oracleUnicodeEncodingId",
+		"authenticationMode",
+		"executionMode",
+		"errorHandle",
+		"parameterPointer",
+		"sessionHandle",
+		"serverHandle",
+		"transactionHandle",
+		"isMaxStringSizeExtended"
+	],
+	"name" : "OciClient",
+	"type" : "normal"
+}

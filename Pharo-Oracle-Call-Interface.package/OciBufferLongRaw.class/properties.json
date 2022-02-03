@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "OciBuffer",
+	"category" : "Pharo-Oracle-Call-Interface-Buffers",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "OciBufferLongRaw",
+	"type" : "normal"
+}

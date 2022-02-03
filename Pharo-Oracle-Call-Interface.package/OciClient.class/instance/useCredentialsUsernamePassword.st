@@ -1,0 +1,3 @@
+initialize-release
+useCredentialsUsernamePassword
+	authenticationMode := OCI_CRED_RDBMS

@@ -1,0 +1,2 @@
+accessing
+setSingleBufferSizeForValue: aValue

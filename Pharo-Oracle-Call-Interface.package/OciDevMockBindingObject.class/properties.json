@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Pharo-Oracle-Call-Interface-Dev",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"id",
+		"lastName",
+		"firstName"
+	],
+	"name" : "OciDevMockBindingObject",
+	"type" : "normal"
+}

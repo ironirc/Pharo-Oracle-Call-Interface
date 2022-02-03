@@ -1,0 +1,3 @@
+accessing
+parameterPointer
+	^ parameterPointer

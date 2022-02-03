@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "OciBufferWithReusableValueBuffer",
+	"category" : "Pharo-Oracle-Call-Interface-Buffers",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "OciBufferVarnum",
+	"type" : "normal"
+}

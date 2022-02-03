@@ -1,0 +1,26 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Pharo-Oracle-Call-Interface-Buffers",
+	"classinstvars" : [ ],
+	"pools" : [
+		"OciConstants",
+		"OciConstantsExternalDataTypes",
+		"OciConstantsInternalDataTypes"
+	],
+	"classvars" : [ ],
+	"instvars" : [
+		"columnDescription",
+		"session",
+		"preparableStatement",
+		"position",
+		"externalType",
+		"baseAddressOfLengthsArray",
+		"baseAddressOfReturnCodes",
+		"baseAddressOfIndicators",
+		"baseAddressOfBufferArray",
+		"singleBufferSize"
+	],
+	"name" : "OciBuffer",
+	"type" : "normal"
+}

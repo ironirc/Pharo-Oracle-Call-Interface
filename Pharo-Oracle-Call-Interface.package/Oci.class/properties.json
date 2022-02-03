@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Pharo-Oracle-Call-Interface-UFFI",
+	"classinstvars" : [ ],
+	"pools" : [
+		"OciConstants",
+		"OciConstantsCTypes"
+	],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "Oci",
+	"type" : "normal"
+}

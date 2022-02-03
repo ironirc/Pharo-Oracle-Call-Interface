@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Pharo-Oracle-Call-Interface-Core",
+	"classinstvars" : [ ],
+	"pools" : [
+		"OciConstants"
+	],
+	"classvars" : [ ],
+	"instvars" : [
+		"bindPointer"
+	],
+	"name" : "OciBindingAbstract",
+	"type" : "normal"
+}
