@@ -8,8 +8,8 @@ initializeOciHandlesAndStuff
 		descriptor: self serviceContextHandle
 		type: OCI_HTYPE_SVCCTX.
 	self authenticationMode == OCI_CRED_RDBMS
-		ifTrue: [ self username ifNilOrEmpty: [ self error: 'username missing' ].
-			self password ifNilOrEmpty: [ self error: 'password missing' ].
+		ifTrue: [ self username ifNil: [ self error: 'username missing' ].
+			self password ifNil: [ self error: 'password missing' ].
 			self
 				ociAttributeSetString: self username
 				type: OCI_ATTR_USERNAME
