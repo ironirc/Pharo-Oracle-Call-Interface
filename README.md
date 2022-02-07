@@ -1,8 +1,9 @@
 # Pharo-Oracle-Call-Interface
 
-This library allows you to connect to an [Oracle SQL RDBMS](https://www.oracle.com/database/) 
+This library allows you to connect 
+to an [Oracle SQL RDBMS](https://www.oracle.com/database/) 
 from [Pharo](https://pharo.org) (versions 8 and up).
-It provides a binding with Oracle's OCI using FFI.
+It provides a binding with [Oracle's OCI](https://docs.oracle.com/en/database/oracle/oracle-database/21/lnoci/index.html) using FFI.
 
 
 ## Usage
@@ -40,9 +41,12 @@ Metacello new
   load.
 ```
 
-You have to make sure that the Pharo VM can access/load the necessary native library for your platform.
+You have to make sure that the Pharo VM can access/load 
+the necessary native library for your client side OS platform.
 The easiest way to get started is using [Oracle Instant Client](https://www.oracle.com/database/technologies/instant-client.html)
 and an [Oracle Cloud](https://cloud.oracle.com) account.
+You also have to set up and configure access, contact your DBA for help.
+
 
 ## Status
 
