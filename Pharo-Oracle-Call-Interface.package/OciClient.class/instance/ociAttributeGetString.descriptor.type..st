@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociAttributeGetString: attributeType descriptor: descriptor type: descriptorType
 	| attributeBuffer |
 	attributeBuffer := self

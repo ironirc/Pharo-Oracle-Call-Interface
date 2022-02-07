@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociServerDetach
 	| returnValue |
 	returnValue := Oci OCIServerDetach: self serverHandle errhp: self errorHandle mode: OCI_DEFAULT.

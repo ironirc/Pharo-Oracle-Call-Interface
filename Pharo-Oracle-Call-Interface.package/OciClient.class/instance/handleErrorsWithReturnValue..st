@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 handleErrorsWithReturnValue: rv
 
 	self getErrors ifNotNil: [ :errs | 

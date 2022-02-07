@@ -7,6 +7,5 @@ newClient
 		username: 'ADMIN';
 		password: 'BmpPGNj3JsszzfF';
 		yourself.
-	c ociEnvNlsCreate.
 	c connect.
 	^ c

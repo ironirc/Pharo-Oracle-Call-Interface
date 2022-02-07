@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociErrorGet: handleOrNil type: errorType at: errorIndex
 	| buffer rtval bufferErrorCode |
 	buffer := ByteArray new: 512.

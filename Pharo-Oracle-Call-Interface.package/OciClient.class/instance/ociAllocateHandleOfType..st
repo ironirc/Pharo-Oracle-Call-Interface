@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociAllocateHandleOfType: handleType
 	| newHandle returnValue |
 	newHandle := ExternalAddress new.

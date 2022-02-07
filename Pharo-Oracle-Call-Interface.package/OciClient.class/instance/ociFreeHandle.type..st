@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociFreeHandle: aHandle type: aType
 	aHandle ifNil: [ ^self ].
 	aHandle isNull ifTrue: [ ^self ].

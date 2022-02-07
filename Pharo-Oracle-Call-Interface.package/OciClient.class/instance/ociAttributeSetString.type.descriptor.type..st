@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociAttributeSetString: aString type: anAttributeType descriptor: aDescriptor type: aDescriptorType
 	| encodedString |
 	encodedString := aString encodeWith: #utf8.

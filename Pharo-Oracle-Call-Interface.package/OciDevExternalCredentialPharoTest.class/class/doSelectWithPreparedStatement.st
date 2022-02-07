@@ -11,6 +11,4 @@ doSelectWithPreparedStatement
 		doWhilePrepared: [ rows := ps executeAndReturnRowsWithInput: nil.
 			rows inspect]
 		shouldCache: false.
-	cl ociSessionEnd.
-	cl ociServerDetach.
-	cl ociFreeAllHandles
+	cl close

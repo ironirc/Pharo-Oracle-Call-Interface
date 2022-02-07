@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociFreeAllHandles
 	self ociFreeTransactionHandle.
 	self ociFreeSessionHandle.

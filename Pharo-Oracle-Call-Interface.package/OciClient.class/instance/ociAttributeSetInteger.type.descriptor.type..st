@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociAttributeSetInteger: anInteger type: anAttributeType descriptor: aDescriptor type: aDescriptorType
 	self
 		ociAttributeSet: (ByteArray with: anInteger)

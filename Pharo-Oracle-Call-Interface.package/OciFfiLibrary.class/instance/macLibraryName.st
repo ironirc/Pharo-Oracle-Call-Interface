@@ -1,3 +1,3 @@
-library path
+accessing - platform
 macLibraryName
 	^ 'libclntsh.dylib'

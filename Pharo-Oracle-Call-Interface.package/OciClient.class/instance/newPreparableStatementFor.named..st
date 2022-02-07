@@ -1,4 +1,4 @@
-oci calls
+public
 newPreparableStatementFor: statementString named: statementName
 	"Create and return an instance of OciPreparedStatement 
 	statementName must be unique"

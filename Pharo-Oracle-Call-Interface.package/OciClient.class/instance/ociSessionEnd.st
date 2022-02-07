@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociSessionEnd
 	| returnValue |
 	returnValue := Oci

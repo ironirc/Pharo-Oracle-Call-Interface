@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociEnvNlsCreate
 	| externalAddr returnValue |
 	externalAddr := ExternalAddress new.

@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociAllocateAllHandles
 	self ociAllocateErrorHandle.
 	self ociAllocateServiceContextHandle.

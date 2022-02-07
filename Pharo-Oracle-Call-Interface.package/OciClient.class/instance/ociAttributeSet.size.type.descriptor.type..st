@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociAttributeSet: attributePointer size: size type: anAttributeType descriptor: aDescriptor type: aDescriptorType
 	| returnValue |
 	returnValue := Oci

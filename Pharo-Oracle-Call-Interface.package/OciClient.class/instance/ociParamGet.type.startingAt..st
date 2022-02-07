@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociParamGet: hDescriptor type: descriptorType startingAt: position
 	| returnValue externalAddress |
 	externalAddress := ExternalAddress new.

@@ -1,3 +1,3 @@
 testing
 isConnected
-	^ self sessionHandle isNull not
+	^ self sessionHandle notNil and: [ self sessionHandle isNull not ]

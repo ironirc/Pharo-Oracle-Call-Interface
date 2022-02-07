@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociServerAttach
 	| env returnValue |
 	self ociAllocateAllHandles.

@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociAttributeGet: attributeType length: sizep descriptor: descriptor type: descriptorType
 	| returnValue attributep |
 	attributep := ByteArray new: (ExternalAddress wordSize).

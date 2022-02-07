@@ -1,4 +1,4 @@
-oci calls
+private oci calls
 ociAttributeSetHandle: aHandle type: attributeType descriptor: descriptor type: descriptorType
 	self
 		ociAttributeSet: aHandle

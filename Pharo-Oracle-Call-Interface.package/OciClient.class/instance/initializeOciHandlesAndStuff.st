@@ -1,4 +1,4 @@
-public
+private
 initializeOciHandlesAndStuff
 	self environmentHandle: self ociEnvNlsCreate.
 	self ociServerAttach.
