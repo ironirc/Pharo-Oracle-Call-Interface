@@ -1,3 +1,6 @@
 oci calls
 handleErrorsWithReturnValue: rv
-	self getErrors ifNotNilOrEmpty: [ :errs | self raiseErrorForErrors: errs returnValue: rv ]
+
+	self getErrors ifNotNil: [ :errs | 
+		errs isEmpty ifFalse: [ 
+			self raiseErrorForErrors: errs returnValue: rv ] ]

@@ -4,7 +4,7 @@ executeAndReturnRowsWithInput: anObject
 	self ociExecuteStatement.
 	self initializeColumnDescriptionsForCurrentStatement.
 	self columnDescriptions
-		ifNotNilOrEmpty: [ | rowsFetched rows |
+		ifNotNil: [ | rowsFetched rows |
 			self initializeOciBuffers.
 			rows := OrderedCollection new.
 			[ rowsFetched := self ociStmtFetch2.

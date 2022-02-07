@@ -1,7 +1,7 @@
 oci calls
 ociAttributeGet: attributeType length: sizep descriptor: descriptor type: descriptorType
 	| returnValue attributep |
-	attributep := ByteArray new: 4.
+	attributep := ByteArray new: (ExternalAddress wordSize).
 	returnValue := Oci
 		OCIAttrGet: descriptor
 		trghndltyp: descriptorType
