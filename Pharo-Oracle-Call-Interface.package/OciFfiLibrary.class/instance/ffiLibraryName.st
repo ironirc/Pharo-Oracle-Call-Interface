@@ -1,4 +1,4 @@
-as yet unclassified
+library path
 ffiLibraryName
 
 	^ 'oci.dll'
