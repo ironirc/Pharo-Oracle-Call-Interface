@@ -1,12 +1,25 @@
 # Pharo-Oracle-Call-Interface
-Providing a binding with Oracle's OCI using FFI
 
-Developed with Pharo8 32bit on Windows.
-Pharo8 64-bit and Pharo10 64-bit also working.
+This library allows you to connect to an [Oracle SQL RDBMS](https://www.oracle.com/database/) 
+from [Pharo](https://pharo.org) (versions 8 and up).
+It provides a binding with Oracle's OCI using FFI.
 
-If you want to experiment with it:  
-Add this repository to Pharo Iceberg and checkout the code.  
-Make sure oci.dll is installed and available for your Pharo instance.  
+## Installation
 
-During dev Oracle instant client was used.  
-Basic queries working.
+To install this library you clone this repository and load BaselineOfPharoOracleCallInterface.
+This can be done using the Iceberg UI tools and with the following script:
+
+```
+Metacello new
+  baseline: 'BaselineOfPharoOracleCallInterface';
+  repository: 'github://svenvc/ztimestamp';
+  load.
+```
+
+You have to make sure that the Pharo VM can access/load the necessary native library for your platform.
+The easiest way to get started is using [Oracle Instant Client](https://www.oracle.com/database/technologies/instant-client.html)
+and an [Oracle Cloud](https://cloud.oracle.com) account.
+
+## Status
+
+Basic queries are working on 32 and 64 bit Windows and 64 bit macOS.
