@@ -10,7 +10,7 @@ It provides a binding with [Oracle's OCI](https://docs.oracle.com/en/database/or
 
 Once correctly installed on your local computer, you use OciClient to interact with the Oracle database:
 
-```
+```Smalltalk
 | client statement rows |
 
 client := OciClient new
@@ -34,7 +34,7 @@ rows.
 To install this library you clone this repository and load BaselineOfPharoOracleCallInterface.
 This can be done using the Iceberg UI tools and with the following script:
 
-```
+```Smalltalk
 Metacello new
   baseline: 'BaselineOfPharoOracleCallInterface';
   repository: 'github://Ironirc/Pharo-Oracle-Call-Interface';
@@ -50,4 +50,7 @@ You also have to set up and configure access, contact your DBA for help.
 
 ## Status
 
+This project is new and currently under development.
+It should not be used for production applications.
+If you are interested please help out.
 Basic queries are working on 32 and 64 bit Windows and 64 bit macOS.
