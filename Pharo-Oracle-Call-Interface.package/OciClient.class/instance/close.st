@@ -1,6 +1,6 @@
 initialize-release
 close
-	self isConnected ifTrue: [ ^ self ].
+	self isConnected ifFalse: [ ^ self ].
 	self ociSessionEnd.
 	self ociServerDetach.
 	self ociFreeAllHandles.

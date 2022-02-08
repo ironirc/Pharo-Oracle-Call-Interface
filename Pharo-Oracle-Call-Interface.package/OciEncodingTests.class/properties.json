@@ -1,11 +1,11 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "SvenVanCaekenberghe 2/8/2022 12:21",
 	"super" : "TestCase",
 	"category" : "Pharo-Oracle-Call-Interface-Testing",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "OciTestCase",
+	"name" : "OciEncodingTests",
 	"type" : "normal"
 }
