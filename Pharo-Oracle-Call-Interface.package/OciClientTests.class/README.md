@@ -6,7 +6,7 @@ I have to be configured in order to be able to run my tests:
 OciClientTests factory: [ 
 	OciClient new
 		environmentString: 'pharotst202112_medium';
-		username: 'ADMIN';
-		password: 'secret';
+		username: 'SCOTT';
+		password: 'TIGER';
 		yourself ].
 ```

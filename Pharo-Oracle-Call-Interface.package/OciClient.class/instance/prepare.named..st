@@ -1,6 +1,6 @@
 public
-newPreparableStatementFor: statementString named: statementName
-	"Create and return an instance of OciPreparedStatement 
+prepare: sqlStatementString named: statementName
+	"Create and return an instance of OciPreparedStatement.
 	statementName must be unique"
 
 	| statement |
@@ -8,5 +8,5 @@ newPreparableStatementFor: statementString named: statementName
 	statement := OciPreparableStatement new.
 	statement client: self.
 	statement name: statementName.
-	statement setStatementString: statementString.
+	statement setStatementString: sqlStatementString.
 	^ statement

@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "",
 	"super" : "Object",
-	"category" : "Pharo-Oracle-Call-Interface-Dev",
+	"category" : "Pharo-Oracle-Call-Interface-Testing",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
