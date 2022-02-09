@@ -3,7 +3,8 @@
 This library allows you to connect 
 to an [Oracle SQL RDBMS](https://www.oracle.com/database/) 
 from [Pharo](https://pharo.org) (versions 8 and up).
-It provides a binding with [Oracle's OCI](https://docs.oracle.com/en/database/oracle/oracle-database/21/lnoci/index.html) using FFI.
+It provides a binding with [Oracle's OCI](https://docs.oracle.com/en/database/oracle/oracle-database/21/lnoci/index.html) 
+(also known as the [Oracle Call Interface](https://en.wikipedia.org/wiki/Oracle_Call_Interface)) using FFI.
 
 
 ## Usage
@@ -14,17 +15,15 @@ Once correctly installed on your local computer, you use OciClient to interact w
 | client statement rows |
 
 client := OciClient new
-	environmentString: 'pharotst202112_medium';
-	username: 'ADMIN';
-	password: 'secret';
-	yourself.
+ environmentString: 'pharotst202112_medium';
+ username: 'SCOTT';
+ password: 'TIGER';
+ yourself.
 
-statement := client newPreparableStatementFor: 'SELECT * FROM table'.
-statement	
-	doWhilePrepared: [ rows := statement executeAndReturnRowsWithInput: nil ]
-	shouldCache: false.
-		
+rows := client query: 'SELECT * FROM emp'.  
+
 client close.
+
 rows.
 ```
 
