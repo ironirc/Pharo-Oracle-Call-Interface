@@ -15,10 +15,10 @@ Once correctly installed on your local computer, you use OciClient to interact w
 | client statement rows |
 
 client := OciClient new
- environmentString: 'pharotst202112_medium';
- username: 'SCOTT';
- password: 'TIGER';
- yourself.
+  environmentString: 'pharotst202112_medium';
+  username: 'SCOTT';
+  password: 'TIGER';
+  yourself.
 
 rows := client query: 'SELECT * FROM emp'.  
 
