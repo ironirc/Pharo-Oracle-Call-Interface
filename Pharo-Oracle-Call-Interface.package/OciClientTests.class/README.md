@@ -10,3 +10,5 @@ OciClientTests factory: [
 		password: 'TIGER';
 		yourself ].
 ```
+
+These tests will create and fill the tables they need and clean up afterwards.
