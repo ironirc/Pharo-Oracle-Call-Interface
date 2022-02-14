@@ -1,4 +1,4 @@
-printing
+private
 ensureBindingForStatement: aStatement inputObject: anObject
 	| bindName returnValue val buff |
 	bindName := self name utf8Encoded.
