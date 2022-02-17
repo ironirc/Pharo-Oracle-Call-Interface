@@ -35,8 +35,8 @@ This can be done using the Iceberg UI tools and with the following script:
 
 ```Smalltalk
 Metacello new
-  baseline: 'BaselineOfPharoOracleCallInterface';
-  repository: 'github://Ironirc/Pharo-Oracle-Call-Interface';
+  baseline: 'PharoOracleCallInterface';
+  repository: 'github://Ironirc/Pharo-Oracle-Call-Interface:main/';
   load.
 ```
 
