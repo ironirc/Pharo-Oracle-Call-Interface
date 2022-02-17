@@ -1,4 +1,4 @@
 instance creation
 newClient
-	Oci ociTerminate.
+	"Oci ociTerminate."
 	^ self class factory value
