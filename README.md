@@ -12,7 +12,7 @@ It provides a binding with [Oracle's OCI](https://docs.oracle.com/en/database/or
 Once correctly installed on your local computer, you use OciClient to interact with the Oracle database:
 
 ```Smalltalk
-| client statement rows |
+| client rows |
 
 client := OciClient new
   environmentString: 'pharotst202112_medium';
@@ -26,6 +26,8 @@ client close.
 
 rows.
 ```
+
+There is also support for prepared statements with binding, check the unit tests for examples.
 
 
 ## Installation
