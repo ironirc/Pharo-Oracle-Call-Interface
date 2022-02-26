@@ -1,3 +1,3 @@
 private
-getValueFrom: anObject
+getValueFromInput: anObject
 	^ anObject at: self position

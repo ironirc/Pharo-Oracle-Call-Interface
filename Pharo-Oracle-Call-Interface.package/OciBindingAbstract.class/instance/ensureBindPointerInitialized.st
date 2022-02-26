@@ -1,0 +1,4 @@
+private
+ensureBindPointerInitialized
+
+	self subclassResponsibility

@@ -1,7 +1,7 @@
 public
 doWhilePrepared: aBlock shouldCache: shouldCache
 	self ociPrepareStatement.
-	aBlock
+	^aBlock
 		ensure: [ 
 			"self close"
 			shouldCache

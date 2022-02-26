@@ -1,5 +1,5 @@
 public
-executeAndReturnRowsWithInput: anObject
+executeWith: anObject
 	self ensureInputBindingsForInputObject: anObject.
 	self ociExecuteStatement.
 	self initializeColumnDescriptionsForCurrentStatement.

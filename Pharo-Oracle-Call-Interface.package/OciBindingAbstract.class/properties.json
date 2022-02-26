@@ -8,7 +8,9 @@
 	],
 	"classvars" : [ ],
 	"instvars" : [
-		"bindPointer"
+		"bindPointer",
+		"buffer",
+		"statement"
 	],
 	"name" : "OciBindingAbstract",
 	"type" : "normal"

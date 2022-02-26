@@ -1,3 +1,3 @@
 printing
-getValueFrom: anObject
+getValueFromInput: anObject
 	^ anObject perform: self name asSymbol
