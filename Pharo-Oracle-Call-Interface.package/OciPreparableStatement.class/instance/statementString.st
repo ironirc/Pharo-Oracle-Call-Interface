@@ -1,3 +1,0 @@
-accessing
-statementString
-	^ statementString

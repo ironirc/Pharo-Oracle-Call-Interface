@@ -1,3 +1,0 @@
-accessing
-rowsInBlock
-	^ rowsInBlock

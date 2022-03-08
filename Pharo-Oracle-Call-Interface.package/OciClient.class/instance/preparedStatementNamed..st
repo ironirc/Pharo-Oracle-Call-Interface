@@ -1,2 +1,0 @@
-accessing derived
-preparedStatementNamed: statementName

@@ -1,3 +1,0 @@
-accessing
-preparableStatement
-	^ preparableStatement

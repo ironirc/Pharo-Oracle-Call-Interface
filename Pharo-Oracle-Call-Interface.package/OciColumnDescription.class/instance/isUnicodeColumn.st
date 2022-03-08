@@ -1,3 +1,0 @@
-accessing
-isUnicodeColumn
-	^ isUnicodeColumn

@@ -1,3 +1,0 @@
-accessing
-serviceContextHandle
-	^ serviceContextHandle

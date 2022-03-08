@@ -1,3 +1,0 @@
-accessing
-columnDescription
-	^ columnDescription

@@ -1,3 +1,0 @@
-public
-initializeColumnDescriptionsForCurrentStatement
-	self columnDescriptions: self getColumnDescriptionsFromOciDescriptors
