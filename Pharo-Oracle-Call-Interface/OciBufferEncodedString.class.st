@@ -1,10 +1,7 @@
 Class {
 	#name : #OciBufferEncodedString,
 	#superclass : #OciBuffer,
-	#instVars : [
-		'isUnicode'
-	],
-	#category : 'Pharo-Oracle-Call-Interface-Buffers'
+	#category : #'Pharo-Oracle-Call-Interface-Buffers'
 }
 
 { #category : #accessing }
@@ -20,44 +17,43 @@ OciBufferEncodedString >> encodeStringAsByteArray: aString [
 
 { #category : #private }
 OciBufferEncodedString >> encoding [
-	self flag: 'incomplete'.
-	^ isUnicode
-		ifTrue: [ self client unicodeEncoding ]
-		ifFalse: [ self client encoding ]
+
+	self flag: 'revise'.
+	^ self columnDescription isUnicodeColumn
+		  ifTrue: [ self halt ]
+		  ifFalse: [ self client encoding ]
 ]
 
 { #category : #'initialize-release' }
 OciBufferEncodedString >> initialize [
 	super initialize.
-	isUnicode := false
+
 ]
 
-{ #category : #'initialize-release' }
-OciBufferEncodedString >> initializeWithColumnDescription: cd [
-	super initializeWithColumnDescription: cd.
-	isUnicode := cd isUnicodeColumn
+{ #category : #testing }
+OciBufferEncodedString >> isEncodingUtf16 [
+
+	^ self encoding = #utf_16
 ]
 
 { #category : #accessing }
 OciBufferEncodedString >> needsDoubleBufferSize [
+
 	self flag: 'revise'.
-	^ self encoding = #utf_16 = isUnicode
+	^ self isEncodingUtf16 = self columnDescription isUnicodeColumn
 ]
 
 { #category : #accessing }
 OciBufferEncodedString >> ociDefine [
+
 	super ociDefine.
 	self client
-		ociAttributeSetInteger:
-			(isUnicode
-				ifTrue: [ SQLCS_NCHAR ]
-				ifFalse: [ SQLCS_IMPLICIT ])
+		ociAttributeSetInteger: (self columnDescription isUnicodeColumn
+				 ifTrue: [ SQLCS_NCHAR ]
+				 ifFalse: [ SQLCS_IMPLICIT ])
 		type: OCI_ATTR_CHARSET_FORM
 		descriptor: self defineHandle
 		type: OCI_HTYPE_DEFINE
-		
-	
-
 ]
 
 { #category : #accessing }
@@ -67,10 +63,11 @@ OciBufferEncodedString >> valueFromBufferAtRow: rowIndex [
 
 { #category : #accessing }
 OciBufferEncodedString >> znCharacterEncoder [
-	(#(utf_8 default) includes: self encoding)
-		ifTrue: [ ^ ZnCharacterEncoder utf8 ].
-	self encoding == #utf_16
-		ifTrue: [ ^ ZnCharacterEncoder newForEncoding: 'utf16' ].
+
+	(#( utf_8 default ) includes: self encoding) ifTrue: [ 
+		^ ZnCharacterEncoder utf8 ].
+	self isEncodingUtf16 ifTrue: [ 
+		^ ZnCharacterEncoder newForEncoding: 'utf16' ].
 	"add more as needed"
 	self error: 'unkown encoding: ' , self encoding
 ]

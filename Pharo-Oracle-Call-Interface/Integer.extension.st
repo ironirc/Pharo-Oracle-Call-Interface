@@ -12,8 +12,6 @@ Integer >> asOciVarNumByteArrayWithExponent: exponent isNegative: isNegative [
 	"https://docs.oracle.com/en/database/oracle/oracle-database/12.2/lnoci/data-types.html#GUID-91151345-2C67-41BC-A782-AD4816B89BCF"
 
 	| resultArray currentValue numberOfMantissaBytes mantissaByte resultLength |
-	"	self isZero
-		ifTrue: [ ^ #[1 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] ]."
 	self < 0
 		ifTrue: [ ^ self negated asOciVarNumByteArrayWithExponent: exponent isNegative: true ].
 	[ self \\ 100 == 0 ] whileTrue: [ ^ self // 100 asOciVarNumByteArrayWithExponent: exponent - 1 isNegative: isNegative ].

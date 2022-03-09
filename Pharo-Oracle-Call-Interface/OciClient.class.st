@@ -46,7 +46,7 @@ Class {
 		'OciConstantsExternalDataTypes',
 		'OciConstantsInternalDataTypes'
 	],
-	#category : 'Pharo-Oracle-Call-Interface-Core'
+	#category : #'Pharo-Oracle-Call-Interface-Core'
 }
 
 { #category : #accessing }
@@ -177,17 +177,6 @@ OciClient >> execute: sqlStatementString [
 	self query: sqlStatementString
 ]
 
-{ #category : #'error handling' }
-OciClient >> getConnectionErrors [
-	| errors err errorIndex |
-	errors := OrderedCollection new.
-	errorIndex := 1.
-	[ (err := self ociErrorGet: self errorHandle type: OCI_HTYPE_ERROR at: errorIndex) notNil ]
-		whileTrue: [ errors add: err.
-			errorIndex := errorIndex + 1 ].
-	^ errors
-]
-
 { #category : #private }
 OciClient >> getEncodingFromOci [
 
@@ -199,7 +188,7 @@ OciClient >> getEncodingFromOci [
 OciClient >> getErrors [
 	^ self errorHandle
 		ifNil: [ self error: 'unable to get errors because error handle is not initialized' ]
-		ifNotNil: [ self getConnectionErrors ]
+		ifNotNil: [ self ociGetErrors ]
 ]
 
 { #category : #'private oci calls' }
@@ -498,6 +487,22 @@ OciClient >> ociFreeSessionHandle [
 { #category : #'private oci calls' }
 OciClient >> ociFreeTransactionHandle [
 	self ociFreeHandle: self transactionHandle type: OCI_HTYPE_TRANS
+]
+
+{ #category : #'private oci calls' }
+OciClient >> ociGetErrors [
+
+	^ OrderedCollection streamContents: [ :ws | 
+		  | err errorIndex |
+		  errorIndex := 1.
+		  [ 
+		  err := self
+			         ociErrorGet: self errorHandle
+			         type: OCI_HTYPE_ERROR
+			         at: errorIndex.
+		  err isNil ] whileFalse: [ 
+			  ws << err.
+			  errorIndex := errorIndex + 1 ] ]
 ]
 
 { #category : #'private oci calls' }
