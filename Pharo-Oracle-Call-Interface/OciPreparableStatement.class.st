@@ -18,7 +18,7 @@ Class {
 	#pools : [
 		'OciConstants'
 	],
-	#category : 'Pharo-Oracle-Call-Interface-Core'
+	#category : #'Pharo-Oracle-Call-Interface-Core'
 }
 
 { #category : #private }
@@ -190,7 +190,7 @@ OciPreparableStatement >> getColumnDescriptionsFromOciDescriptors [
 						precision: (self client ociAttributeGetInteger: OCI_ATTR_PRECISION descriptor: colDescPointer type: OCI_DTYPE_PARAM);
 						scale: (self client ociAttributeGetInteger: OCI_ATTR_SCALE descriptor: colDescPointer type: OCI_DTYPE_PARAM);
 						isNullable: (self client ociAttributeGetBoolean: OCI_ATTR_IS_NULL descriptor: colDescPointer type: OCI_DTYPE_PARAM);
-						isUnicodeColumn: (self client ociAttributeGetInteger: OCI_ATTR_CHARSET_FORM descriptor: colDescPointer type: OCI_DTYPE_PARAM) == SQLCS_NCHAR.
+						isUnicode: (self client ociAttributeGetInteger: OCI_ATTR_CHARSET_FORM descriptor: colDescPointer type: OCI_DTYPE_PARAM) == SQLCS_NCHAR.
 					colDescrStream nextPut: colDescr ] ]
 ]
 
@@ -222,12 +222,6 @@ OciPreparableStatement >> initializeOciBuffers [
 ]
 
 { #category : #test }
-OciPreparableStatement >> isPlsql [
-	^ {OCI_STMT_BEGIN.
-	OCI_STMT_DECLARE} includes: self ociAttributeGetStatementType
-]
-
-{ #category : #test }
 OciPreparableStatement >> isPrepared [
 	^ statementHandle notNil and: [ statementHandle isNull not ]
 ]
@@ -251,7 +245,6 @@ This function returns an error if iters=0 for non-SELECT statements.
 Note: For array DML operations, set iters <= 32767 to get better performance."
 
 	self isSelect ifTrue: [ ^ 0 ].
-	self isPlsql ifTrue: [ ^ 1 ].
 	(self bindings isNil or: [ self bindings isEmpty ]) ifTrue: [ ^ 1 ].
 	self flag: 'TO DO: determine max size of bound input arrays, and return this value'.
 	^ 1

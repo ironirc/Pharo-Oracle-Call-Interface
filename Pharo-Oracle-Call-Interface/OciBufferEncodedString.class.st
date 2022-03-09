@@ -19,7 +19,7 @@ OciBufferEncodedString >> encodeStringAsByteArray: aString [
 OciBufferEncodedString >> encoding [
 
 	self flag: 'revise'.
-	^ self columnDescription isUnicodeColumn
+	^ self columnDescription isUnicode
 		  ifTrue: [ self halt ]
 		  ifFalse: [ self client encoding ]
 ]
@@ -40,7 +40,7 @@ OciBufferEncodedString >> isEncodingUtf16 [
 OciBufferEncodedString >> needsDoubleBufferSize [
 
 	self flag: 'revise'.
-	^ self isEncodingUtf16 = self columnDescription isUnicodeColumn
+	^ self isEncodingUtf16 = self columnDescription isUnicode
 ]
 
 { #category : #accessing }
@@ -48,7 +48,7 @@ OciBufferEncodedString >> ociDefine [
 
 	super ociDefine.
 	self client
-		ociAttributeSetInteger: (self columnDescription isUnicodeColumn
+		ociAttributeSetInteger: (self columnDescription isUnicode
 				 ifTrue: [ SQLCS_NCHAR ]
 				 ifFalse: [ SQLCS_IMPLICIT ])
 		type: OCI_ATTR_CHARSET_FORM

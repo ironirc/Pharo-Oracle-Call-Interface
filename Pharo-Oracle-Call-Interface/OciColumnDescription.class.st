@@ -7,17 +7,17 @@ Class {
 		'type',
 		'precision',
 		'scale',
-		'isUnicodeColumn',
 		'session',
 		'position',
 		'isNullable',
-		'maxNumberOfBytes'
+		'maxNumberOfBytes',
+		'isUnicode'
 	],
 	#pools : [
 		'OciConstantsExternalDataTypes',
 		'OciConstantsInternalDataTypes'
 	],
-	#category : 'Pharo-Oracle-Call-Interface-Core'
+	#category : #'Pharo-Oracle-Call-Interface-Core'
 }
 
 { #category : #initialization }
@@ -25,7 +25,7 @@ OciColumnDescription >> initialize [
 
 	precision := 0.
 	scale := 0.
-	isUnicodeColumn := false
+	isUnicode := false
 ]
 
 { #category : #accessing }
@@ -64,13 +64,13 @@ OciColumnDescription >> isString [
 ]
 
 { #category : #accessing }
-OciColumnDescription >> isUnicodeColumn [
-	^ isUnicodeColumn
+OciColumnDescription >> isUnicode [
+	^ isUnicode
 ]
 
 { #category : #accessing }
-OciColumnDescription >> isUnicodeColumn: anObject [
-	isUnicodeColumn := anObject
+OciColumnDescription >> isUnicode: anObject [
+	isUnicode := anObject
 ]
 
 { #category : #accessing }
