@@ -350,13 +350,14 @@ OciClient >> ociAttributeGetInteger: attributeType descriptor: descriptor type: 
 
 { #category : #'private oci calls' }
 OciClient >> ociAttributeGetString: attributeType descriptor: descriptor type: descriptorType [
+
 	| attributeBuffer |
 	attributeBuffer := self
-		ociAttributeGet: attributeType
-		length: nil
-		descriptor: descriptor
-		type: descriptorType.
-	^ attributeBuffer asExternalPointer readStringUTF8
+		                   ociAttributeGet: attributeType
+		                   length: nil
+		                   descriptor: descriptor
+		                   type: descriptorType.
+	^ attributeBuffer asExternalPointer utf8StringFromCString
 ]
 
 { #category : #'private oci calls' }
