@@ -575,6 +575,40 @@ OciClient >> ociSessionEnd [
 	self handleErrorsWithReturnValue: returnValue
 ]
 
+{ #category : #'private oci calls' }
+OciClient >> ociTransactionCommit [
+
+	| returnValue |
+	returnValue := Oci
+		               OCITransCommit: self serviceContextHandle
+		               errhp: self errorHandle
+		               flags: OCI_DEFAULT.
+	returnValue == OCI_SUCCESS ifTrue: [ ^ self ].
+	self handleErrorsWithReturnValue: returnValue
+]
+
+{ #category : #'private oci calls' }
+OciClient >> ociTransactionRollback [
+
+	| returnValue |
+	returnValue := Oci
+		               OCITransRollback: self serviceContextHandle
+		               errhp: self errorHandle
+		               flags: OCI_DEFAULT.
+	returnValue == OCI_SUCCESS ifTrue: [ ^ self ].
+	self handleErrorsWithReturnValue: returnValue
+]
+
+{ #category : #'private oci calls' }
+OciClient >> ociTransactionStart [
+	| returnValue |
+	returnValue := Oci
+		OCITransStart: self serviceContextHandle errhp: self errorHandle timeout: 1 flags: OCI_TRANS_NEW.
+	returnValue == OCI_SUCCESS
+		ifTrue: [ ^ self ].
+	self handleErrorsWithReturnValue: returnValue
+]
+
 { #category : #accessing }
 OciClient >> oracleEncodingId [
 	^ oracleEncodingId

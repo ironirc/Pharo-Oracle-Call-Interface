@@ -5,7 +5,7 @@ Class {
 		'OciConstants',
 		'OciConstantsCTypes'
 	],
-	#category : 'Pharo-Oracle-Call-Interface-UFFI'
+	#category : #'Pharo-Oracle-Call-Interface-UFFI'
 }
 
 { #category : #'ffi-calls' }
@@ -372,6 +372,37 @@ Oci class >> OCITerminate: mode [
 	^ self
 		ffiCall: #(short OCITerminate #(byte mode))
 	
+]
+
+{ #category : #'ffi-calls' }
+Oci class >> OCITransCommit: svchp errhp: errhp  flags: flags [
+	"sword OCITransCommit ( OCISvcCtx *svchp,
+ OCIError *errhp,
+ ub4 flags );"
+
+	^ self ffiCall:
+		  #( sword OCITransCommit #( void * svchp , void * errhp , ub4 flags ) )
+]
+
+{ #category : #'ffi-calls' }
+Oci class >> OCITransRollback: svchp errhp: errhp flags: flags [
+	"sword OCITransRollback ( void *svchp,
+ OCIError *errhp,
+ ub4 flags );"
+
+	^ self ffiCall:
+		  #( sword OCITransRollback #( void * svchp , void * errhp , ub4 flags ) )
+]
+
+{ #category : #'ffi-calls' }
+Oci class >> OCITransStart: svchp errhp: errhp timeout: timeout flags: flags [
+	"sword OCITransStart ( OCISvcCtx *svchp,
+ OCIError *errhp,
+ uword timeout,
+ ub4 flags );"
+
+	^ self ffiCall:
+		  #( sword OCITransStart #( void * svchp , void * errhp , uword * timeout , ub4 flags ) )
 ]
 
 { #category : #private }

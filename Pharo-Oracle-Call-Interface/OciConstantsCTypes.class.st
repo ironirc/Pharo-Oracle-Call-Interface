@@ -10,9 +10,10 @@ Class {
 		'sword',
 		'ub1',
 		'ub2',
-		'ub4'
+		'ub4',
+		'uword'
 	],
-	#category : 'Pharo-Oracle-Call-Interface-Constants'
+	#category : #'Pharo-Oracle-Call-Interface-Constants'
 }
 
 { #category : #initialization }
@@ -21,6 +22,7 @@ OciConstantsCTypes class >> initialize [
 	sword := #int.
 	ub4 := #uint.
 	eword := #uint.
+	uword := #uint.
 	sb2 := #signedShort.
 	ub2 := #unsignedShort.
 	sb1 := #signedByte.

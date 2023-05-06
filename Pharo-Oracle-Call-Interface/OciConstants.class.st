@@ -45,10 +45,26 @@ Class {
 		'OCI_SUCCESS',
 		'OCI_SUCCESS_WITH_INFO',
 		'OCI_THREADED',
+		'OCI_TRANS_ISOLMASK',
+		'OCI_TRANS_JOIN',
+		'OCI_TRANS_LOOSE',
+		'OCI_TRANS_NEW',
+		'OCI_TRANS_NOMIGRATE',
+		'OCI_TRANS_OTHRMASK',
+		'OCI_TRANS_OTSRESUME',
+		'OCI_TRANS_PROMOTE',
+		'OCI_TRANS_READONLY',
+		'OCI_TRANS_READWRITE',
+		'OCI_TRANS_RESUME',
+		'OCI_TRANS_SEPARABLE',
+		'OCI_TRANS_SERIALIZABLE',
+		'OCI_TRANS_STARTMASK',
+		'OCI_TRANS_TIGHT',
+		'OCI_TRANS_TYPEMASK',
 		'SQLCS_IMPLICIT',
 		'SQLCS_NCHAR'
 	],
-	#category : 'Pharo-Oracle-Call-Interface-Constants'
+	#category : #'Pharo-Oracle-Call-Interface-Constants'
 }
 
 { #category : #'class initialization' }
@@ -100,6 +116,27 @@ OciConstants class >> initialize [
 	OCI_ATTR_CHARSET_FORM := 32.
 	OCI_ATTR_WALL_LOC := 157. 
 	OCI_ATTR_ROWS_FETCHED := 197.
+ 
+	"transactions"
+	OCI_TRANS_NEW          := 16r00000001. " start a new local or global txn "
+ 	OCI_TRANS_JOIN         := 16r00000002.     " join an existing global txn "
+	OCI_TRANS_RESUME       := 16r00000004.    " resume the global txn branch "
+	OCI_TRANS_PROMOTE      := 16r00000008. " promote the local txn to global "
+	OCI_TRANS_STARTMASK    := 16r000000ff.  " mask for start operation flags "
+
+	OCI_TRANS_READONLY     := 16r00000100.            " start a readonly txn "
+	OCI_TRANS_READWRITE    := 16r00000200.          " start a read-write txn "
+	OCI_TRANS_SERIALIZABLE := 16r00000400.        " start a serializable txn "
+	OCI_TRANS_ISOLMASK     := 16r0000ff00.  " mask for start isolation flags "
+
+	OCI_TRANS_LOOSE        := 16r00010000.        " a loosely coupled branch "
+	OCI_TRANS_TIGHT        := 16r00020000.        " a tightly coupled branch "
+	OCI_TRANS_TYPEMASK     := 16r000f0000.      " mask for branch type flags "
+
+	OCI_TRANS_NOMIGRATE    := 16r00100000.      " non migratable transaction "
+	OCI_TRANS_SEPARABLE    := 16r00200000.  " separable transaction (8.1.6+) "
+	OCI_TRANS_OTSRESUME    := 16r00400000.      " OTS resuming a transaction "
+	OCI_TRANS_OTHRMASK     := 16rfff00000.      " mask for other start flags "
 	
 	"errors"
 	OCI_RTN_CODE_NULL_DATA := 1405.
