@@ -4,11 +4,11 @@ Class {
 	#instVars : [
 		'position'
 	],
-	#category : 'Pharo-Oracle-Call-Interface-Core'
+	#category : #'Pharo-Oracle-Call-Interface-Core'
 }
 
 { #category : #private }
-OciBindingByPosition >> ensureBindPointerInitialized [
+OciBindingByPosition >> ensureBindPointerInitializedWithValue: anObject [
 
 	| returnValue |
 	bindPointer isNull ifFalse: [ ^ self ].

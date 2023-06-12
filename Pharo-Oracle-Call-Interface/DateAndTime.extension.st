@@ -19,3 +19,8 @@ DateAndTime now asOciDateByteArray inspect
 	result at: 7 put: self second + 1.
 	^ result
 ]
+
+{ #category : #'*Pharo-Oracle-Call-Interface' }
+DateAndTime >> ociBufferClass [
+	^OciBufferDate
+]

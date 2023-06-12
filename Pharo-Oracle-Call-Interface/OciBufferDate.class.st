@@ -1,8 +1,22 @@
 Class {
 	#name : #OciBufferDate,
 	#superclass : #OciBufferWithReusableValueBuffer,
-	#category : 'Pharo-Oracle-Call-Interface-Buffers'
+	#category : #'Pharo-Oracle-Call-Interface-Buffers'
 }
+
+{ #category : #constants }
+OciBufferDate class >> externalDatabaseType [
+	^SQLT_DAT
+]
+
+{ #category : #initialization }
+OciBufferDate >> initialize [
+
+	super initialize.
+	externalType := SQLT_DAT.
+	singleBufferSize := 7.
+	valueBuffer := ByteArray new: 7
+]
 
 { #category : #malloc }
 OciBufferDate >> initializeWithColumnDescription: cd [

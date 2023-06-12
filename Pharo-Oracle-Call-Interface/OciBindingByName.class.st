@@ -4,24 +4,39 @@ Class {
 	#instVars : [
 		'name'
 	],
-	#category : 'Pharo-Oracle-Call-Interface-Core'
+	#category : #'Pharo-Oracle-Call-Interface-Core'
 }
 
 { #category : #private }
-OciBindingByName >> ensureBindPointerInitialized [
+OciBindingByName >> ensureBindPointerInitializedWithValue: aValue [
 
-	| bindName returnValue |
+	| bindName indp returnValue |
 	bindName := self name utf8Encoded.
+	indp := aValue
+		        ifNil: [
+			        FFIInt16 newBuffer
+				        signedShortAt: 1 put: -1;
+				        yourself ]
+		        ifNotNil: [ 0 ].
 	returnValue := Oci
 		               OCIBindByName: self statement statementHandle
 		               bindpp: bindPointer
 		               errhp: self statement client errorHandle
 		               placeholder: bindName
 		               placeh_len: bindName size
-		               valuep: buffer baseAddressOfBufferArray
-		               value_sz: buffer singleBufferSize
-		               dty: buffer class externalDatabaseType
-		               indp: nil
+		               valuep:
+		               (buffer
+			                ifNil: [ 0 ]
+			                ifNotNil: [ buffer baseAddressOfBufferArray ])
+		               value_sz:
+		               (buffer
+			                ifNil: [ 0 ]
+			                ifNotNil: [ buffer singleBufferSize ])
+		               dty:
+		               (buffer
+			                ifNil: [ 5 ]
+			                ifNotNil: [ buffer class externalDatabaseType ])
+		               indp: indp
 		               alenp: nil
 		               rcodep: nil
 		               maxarr_len: 0
@@ -44,6 +59,14 @@ OciBindingByName >> name [
 { #category : #accessing }
 OciBindingByName >> name: anObject [
 	name := anObject
+]
+
+{ #category : #printing }
+OciBindingByName >> printOn: ws [
+	super printOn: ws. 
+	ws << ' ('.
+	ws << name.
+	ws << ')'
 ]
 
 { #category : #printing }

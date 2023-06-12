@@ -24,12 +24,13 @@ Class {
 { #category : #private }
 OciPreparableStatement >> addBindingByName: aName [
 
-	| binding |
-	binding := OciBindingByName new
-		           name: aName;
-		           statement: self.
-	bindings add: binding.
-	^binding
+	^ bindings detect: [ :e | e name = aName ] ifNone: [
+		  | binding |
+		  binding := OciBindingByName new
+			             name: aName;
+			             statement: self.
+		  bindings add: binding.
+		  binding ]
 ]
 
 { #category : #private }
@@ -407,7 +408,7 @@ OciPreparableStatement >> readSymbolFromStream: aStream [
 			  ifFalse: [ self error: 'unexpected char while reading symbol' ].
 		  [ 
 		  aStream atEnd not and: [ 
-			  aStream peek isAlphaNumeric or: [ c == $_ ] ] ] whileTrue: [ 
+			  aStream peek isAlphaNumeric or: [ aStream peek == $_ ] ] ] whileTrue: [ 
 			  c := aStream next.
 			  ws nextPut: c ] ]
 ]

@@ -9,11 +9,11 @@ Class {
 	#pools : [
 		'OciConstants'
 	],
-	#category : 'Pharo-Oracle-Call-Interface-Core'
+	#category : #'Pharo-Oracle-Call-Interface-Core'
 }
 
 { #category : #private }
-OciBindingAbstract >> ensureBindPointerInitialized [
+OciBindingAbstract >> ensureBindPointerInitializedWithValue: anObject [
 
 	self subclassResponsibility
 ]
@@ -22,15 +22,18 @@ OciBindingAbstract >> ensureBindPointerInitialized [
 OciBindingAbstract >> ensureBindingForInputObject: anObject [
 
 	| val |
+
 	val := self getValueFromInput: anObject.
+	val ifNotNil: [((val isKindOf: String) and: [ val size = 23]) ifTrue: [ self halt ]].
 	self ensureBufferInitializedForValue: val.
-	self ensureBindPointerInitialized.
+	self ensureBindPointerInitializedWithValue: val.
+	val ifNil: [ ^self ].
 	buffer value: val toBufferAtRow: 1
 ]
 
 { #category : #private }
 OciBindingAbstract >> ensureBufferInitializedForValue: val [
-
+	val ifNil: [ ^self "Ivo 08-05-2023 not sure..."].
 	buffer ifNil: [ 
 		| buff |
 		buff := val ociBufferClass new.

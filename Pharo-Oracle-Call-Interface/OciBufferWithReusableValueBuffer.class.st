@@ -4,13 +4,17 @@ Class {
 	#instVars : [
 		'valueBuffer'
 	],
-	#category : 'Pharo-Oracle-Call-Interface-Buffers'
+	#category : #'Pharo-Oracle-Call-Interface-Buffers'
 }
 
 { #category : #'initialize-release' }
 OciBufferWithReusableValueBuffer >> release [
 	super release.
 	valueBuffer := nil
+]
+
+{ #category : #accessing }
+OciBufferWithReusableValueBuffer >> setSingleBufferSizeForValue: aValue [
 ]
 
 { #category : #accessing }
