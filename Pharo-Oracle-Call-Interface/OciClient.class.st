@@ -351,13 +351,15 @@ OciClient >> ociAttributeGetInteger: attributeType descriptor: descriptor type: 
 { #category : #'private oci calls' }
 OciClient >> ociAttributeGetString: attributeType descriptor: descriptor type: descriptorType [
 
-	| attributeBuffer |
+	| attributeBuffer length |
+	length := ExternalAddress newPointer autoRelease.
 	attributeBuffer := self
 		                   ociAttributeGet: attributeType
-		                   length: nil
+		                   length: length
 		                   descriptor: descriptor
 		                   type: descriptorType.
-	^ attributeBuffer asExternalPointer utf8StringFromCString
+	length := length signedShortAt: 1.
+	^ (attributeBuffer asExternalPointer copyFrom: 1 to: length) asString
 ]
 
 { #category : #'private oci calls' }

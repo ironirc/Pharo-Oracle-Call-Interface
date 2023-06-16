@@ -1,7 +1,7 @@
 Class {
 	#name : #OciFfiLibrary,
 	#superclass : #FFILibrary,
-	#category : 'Pharo-Oracle-Call-Interface-UFFI'
+	#category : #'Pharo-Oracle-Call-Interface-UFFI'
 }
 
 { #category : #initialization }
