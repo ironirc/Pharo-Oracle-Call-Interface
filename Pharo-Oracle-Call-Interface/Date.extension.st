@@ -4,3 +4,8 @@ Extension { #name : #Date }
 Date >> asOciDateByteArray [
 	^ self asDateAndTime asOciDateByteArray
 ]
+
+{ #category : #'*Pharo-Oracle-Call-Interface' }
+Date >> ociBufferClass [
+	^OciBufferDate
+]
